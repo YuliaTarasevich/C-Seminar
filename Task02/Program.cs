@@ -14,6 +14,11 @@ if (firstNumber > secondNumber)
     Console.WriteLine($"max={firstNumber}");
     Console.WriteLine($"min={secondNumber}");
 }
+else 
+if (firstNumber == secondNumber)
+{
+    Console.WriteLine("Числа равны");
+}
 else
 {
     Console.WriteLine($"max={secondNumber}");

@@ -5,24 +5,35 @@
 // 782 -> 8
 // 918 -> 1
 
-Console.WriteLine("Введите трехзначное число:");
-int number = Convert.ToInt32(Console.ReadLine());
-
-int result = SecondDigit(number);
-Console.WriteLine(result);
-
-int SecondDigit(int num)
+int num = Prompt("Введите трехзначное число");
+if (IsNumberOk(num))
 {
-    int secondDigit = -1;
-    if (num > 99 && num < 1000)
-    {
-        int quotient = num / 10;
-        secondDigit = quotient % 10;
-    }
-    else
+    Console.WriteLine(SecondDigit(num));
+}
+
+
+int Prompt(string message)
+{
+    Console.WriteLine(message);
+    string value = Console.ReadLine();
+    int result = Convert.ToInt32(value);
+    return result;
+}
+
+
+bool IsNumberOk(int number)
+{
+    if (number < 100 || number > 999)
     {
         Console.WriteLine("Ошибка ввода");
-        return -1;
+        return false;
     }
-    return secondDigit;
+    return true;
+}
+
+int SecondDigit(int number)
+{
+    int quotient = number / 10;
+    int remainder = quotient % 10;
+    return remainder;
 }

@@ -3,16 +3,25 @@
 //  выводит их на экран.
 // 1, 2, 5, 7, 19, 6, 1, 33 -> [1, 2, 5, 7, 19, 1, 33, 6]
 
-void FillArray(int[] collection)
+int Prompt(string message)
 {
+    Console.WriteLine(message);
+    string value = Console.ReadLine();
+    int finish = Convert.ToInt32(value);
+    return finish;
+}
+
+int [] GenerateArray (int Length, int minValue, int maxValue)
+{
+    int[]array = new int[Length];
     Random num = new Random();
-    int length = collection.Length;
     int index = 0;
-    while (index < length)
+    while (index < Length)
     {
-        collection[index] = num.Next(0, 45);
+        array[index] = num.Next(minValue,maxValue+1);
         index++;
     }
+    return array;
 }
 
 void PrintArray(int[] col)
@@ -36,9 +45,10 @@ void PrintArray(int[] col)
      Console.Write("]");
 }
 
-int[] array = new int[8];
-
-FillArray(array);
+int length = Prompt("Введите длину массива:");
+int min = Prompt("Введите начальное значение, для диапазона массива:");
+int max = Prompt("Введите конечное значение, для диапазона массива:");
+int []array = GenerateArray(length,min,max);
 Console.Write(string.Join(", ",array));
 Console.Write(" --> ");
 PrintArray(array);

@@ -28,7 +28,7 @@ void PrintArray(int[] col)
 {
     int count = col.Length;
     int position = 0;
-    Console.Write("[");
+    // Console.Write("[");
     while (position < count)
     {
         if (position == col.Length - 1)
@@ -42,13 +42,15 @@ void PrintArray(int[] col)
         }
         position++;
     }
-     Console.Write("]");
+    //  Console.Write("]");
 }
 
 int length = Prompt("Введите длину массива:");
 int min = Prompt("Введите начальное значение, для диапазона массива:");
 int max = Prompt("Введите конечное значение, для диапазона массива:");
 int []array = GenerateArray(length,min,max);
-Console.Write(string.Join(", ",array));
-Console.Write(" --> ");
+
 PrintArray(array);
+Console.Write(" --> [");
+PrintArray(array);
+Console.Write("]");

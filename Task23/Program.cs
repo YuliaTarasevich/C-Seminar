@@ -24,7 +24,7 @@ bool IsNumberOk(int num)
 void Square (int number)
 {
     Console.WriteLine("-------------");
-    for (int i=1; i<=number;i++)
+    for (int i = 1; i <= number; i++)
     {
         Console.WriteLine($"|{i,4} | {Math.Pow(i,3),4}|");
     }
@@ -41,3 +41,5 @@ else
 {
     Console.WriteLine("Ошибка ввода. Введите ЦЕЛОЕ число");
 }
+
+

@@ -48,4 +48,3 @@ PrintArray(massive);
 Console.Write("] --> ");
 int[] newmassive = NewArray(massive);
 PrintArray(newmassive);
-

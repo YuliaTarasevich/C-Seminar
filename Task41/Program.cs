@@ -3,23 +3,30 @@
 // 0, 7, 8, -2, -2 -> 2
 // -1, -7, 567, 89, 223-> 3
 
-void ArrayFromKeyboard(out int[] args)
+int Prompt (string message)
 {
+    System.Console.Write(message);
+    string value = Console.ReadLine();
+    int res=Convert.ToInt32(value);
+    return res;
+}
 
-    Console.WriteLine("Введите число элементов массива");
-    int elementsCount = Convert.ToInt32(Console.ReadLine());
-    int[] arr = new int[elementsCount];
-    for (int i = 0; i < arr.Length; i++)
+int[] ArrayFromKeyboard(int length)
+{
+    int[] array = new int[length];
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.WriteLine($"Введите элемент массива под индексом {i}");
-        arr[i] = Convert.ToInt32(Console.ReadLine());
+        array[i]=Prompt($"Введите {i+1}-й элемент");
     }
-    args=arr;
+    return array;
+}
 
-    Console.WriteLine("Вывод массива");
+void PrintArray(int[] arr)
+{
     for (int i = 0; i < arr.Length; i++)
     {
-        Console.Write($"{arr[i]} ");
+        if (i < arr.Length - 1) Console.Write($"{arr[i]}, ");
+        else Console.Write($"{arr[i]} ");
     }
 }
 
@@ -30,13 +37,15 @@ int CountPositiveElements(int[] arr)
     {
         
         if (arr[i] > 0)
-        count = count + 1;
+        count++;
     }
     return count;
 }
 
-int[] array;
-ArrayFromKeyboard(out array);
+int length = Prompt("Введите количество элементов");
 Console.WriteLine();
+int[] array;
+array = ArrayFromKeyboard(length);
+PrintArray(array);
 int result = CountPositiveElements(array);
 Console.WriteLine($"Количество элементов в введенном массиве больше нуля равно {result}");
